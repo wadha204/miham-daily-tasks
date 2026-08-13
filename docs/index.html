@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14213d" />
+    <meta name="description" content="مِهام — قائمة يومية عربية بسيطة وهادئة لترتيب يومك." />
+    <meta property="og:title" content="مِهام | قائمة اليوم" />
+    <meta property="og:description" content="رتّب يومك، أنجز مهامك، وخذها خطوة بخطوة." />
+    <meta property="og:image" content="og.png" />
+    <title>مِهام | قائمة اليوم</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff6847%22/><text x=%2250%22 y=%2270%22 text-anchor=%22middle%22 font-size=%2264%22 font-family=%22Arial%22 font-weight=%22900%22 fill=%22%2314213d%22>م</text></svg>" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="side-panel">
+        <div>
+          <div class="brand-row">
+            <span class="brand-mark" aria-hidden="true">م</span>
+            <div>
+              <p class="brand-name">مِهام</p>
+              <p class="brand-note">مساحة هادئة لإنجاز يومك</p>
+            </div>
+          </div>
+          <div class="date-block">
+            <span class="date-eyebrow">اليوم</span>
+            <p id="today"></p>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-ring" id="progress-ring">
+            <div class="progress-ring-inner">
+              <strong id="progress-value">٠٪</strong>
+              <span>منجَز</span>
+            </div>
+          </div>
+          <div class="progress-copy">
+            <span>تقدّم اليوم</span>
+            <strong id="progress-message">ابدأ بخطوة</strong>
+          </div>
+        </div>
+        <p class="save-note"><span aria-hidden="true"></span> تُحفظ مهامك تلقائيًا على جهازك</p>
+      </aside>
+
+      <section class="workspace">
+        <header class="hero-copy">
+          <div class="eyebrow"><span></span> قائمة اليوم</div>
+          <h1>يومك، <em>مرتّب.</em></h1>
+          <p>اكتب ما يشغل بالك، ثم خذها خطوة بخطوة.</p>
+        </header>
+
+        <form class="add-form" id="add-form">
+          <label class="sr-only" for="task-title">عنوان المهمة</label>
+          <span class="input-plus" aria-hidden="true">＋</span>
+          <input id="task-title" name="title" placeholder="ما الذي تريد إنجازه؟" maxlength="160" autocomplete="off" />
+          <button id="add-button" type="submit" disabled>إضافة المهمة</button>
+        </form>
+
+        <div class="list-toolbar">
+          <div class="filter-tabs" aria-label="تصفية المهام">
+            <button type="button" class="active" data-filter="all" aria-pressed="true">الكل</button>
+            <button type="button" data-filter="active" aria-pressed="false">قيد التنفيذ</button>
+            <button type="button" data-filter="completed" aria-pressed="false">المكتملة</button>
+          </div>
+          <p id="task-summary"><strong>٠</strong> مهام · <strong>٠</strong> مكتملة</p>
+        </div>
+
+        <div class="task-list" id="task-list" aria-live="polite"></div>
+        <noscript><p class="noscript">يلزم تشغيل JavaScript لاستخدام قائمة المهام.</p></noscript>
+      </section>
+    </main>
+  </body>
+</html>
